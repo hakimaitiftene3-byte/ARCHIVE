@@ -1,13 +1,8 @@
--- Zr Express Official Shipping Rates (DZD)
--- This populates the wilaya_pricing table used by checkout
--- Synced from Celis clothing live database
-
-CREATE TABLE IF NOT EXISTS wilaya_pricing (
-  wilaya_code TEXT PRIMARY KEY,
-  wilaya_name TEXT,
-  home_price INT,
-  post_price INT
-);
+-- ============================================
+-- SYNC: Update wilaya_pricing to Celis prices
+-- Database type: TEXT wilaya_code (e.g. '01', '02')
+-- Run in Supabase SQL Editor for ARCHIVE stor3
+-- ============================================
 
 TRUNCATE wilaya_pricing;
 
@@ -69,4 +64,8 @@ INSERT INTO wilaya_pricing (wilaya_code, wilaya_name, home_price, post_price) VA
 ('55', 'Touggourt', 1000, 670),
 ('56', 'Djanet', 0, 0),
 ('57', 'El Meghaier', 950, 0),
-('58', 'El Menia', 1000, 670);
+('58', 'El Menia', 1000, 670)
+ON CONFLICT (wilaya_code) DO UPDATE SET
+  wilaya_name = EXCLUDED.wilaya_name,
+  home_price = EXCLUDED.home_price,
+  post_price = EXCLUDED.post_price;
