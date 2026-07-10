@@ -98,9 +98,8 @@
         @media (max-width: 768px) {
             .bs-section { padding: 40px 0 30px; }
             .bs-section h2 { font-size: 1.5rem; margin-bottom: 24px; }
-            .bs-wrap { padding: 0 48px; }
-            .bs-wrap::before { left:40px; width:50px; }
-            .bs-wrap::after { right:40px; width:50px; }
+            .bs-wrap { padding: 0 12px; }
+            .bs-wrap::before, .bs-wrap::after { display: none; }
             .bs-track { gap: 12px; }
             .bs-card { flex: 0 0 180px; }
             .bs-card .bs-name { font-size: 0.8rem; }
@@ -111,9 +110,8 @@
             .bs-arrow-right { right: 4px; }
         }
         @media (max-width: 480px) {
-            .bs-wrap { padding: 0 40px; }
-            .bs-wrap::before { left:32px; width:40px; }
-            .bs-wrap::after { right:32px; width:40px; }
+            .bs-wrap { padding: 0 8px; }
+            .bs-wrap::before, .bs-wrap::after { display: none; }
             .bs-card { flex: 0 0 160px; }
         }
 
